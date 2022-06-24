@@ -1,6 +1,7 @@
 package com.example.registrationpage
 
 import android.content.Context
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -16,7 +17,7 @@ class MainActivityValidator(private val context: Context, private val binding: A
         return false
     }
 
-    private fun isEmailValid(email: String) = email.contains("@") && email.contains(".")
+    private fun isEmailValid(email: String) = Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
     private fun isUsernameValid(username: String) = username.length >= 10
 
